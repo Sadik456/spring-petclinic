@@ -29,6 +29,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            jacoco execPattern: 'target/jacoco.exec'
         }
     }
 }
