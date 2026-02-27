@@ -5,11 +5,6 @@ pipeline {
         cron('H/5 * * * 4')
     }
 
-    tools {
-        maven 'Maven'
-        jdk 'JDK17'
-    }
-
     stages {
 
         stage('Build & Test') {
@@ -34,7 +29,6 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-            jacoco execPattern: 'target/jacoco.exec'
         }
     }
 }
